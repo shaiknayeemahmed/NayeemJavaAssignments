@@ -7,11 +7,12 @@ public class PyramidStar1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int number = sc.nextInt();
-		String pattern ="";
-		for (int i=1;i<=number;i++) {
-			pattern += "*".repeat(i) + " ";
+		for(int row=0;row<number;row++) {
+			for(int col=0;col<=row;col++) {
+				System.out.print("* ");
+			}
+			System.out.println();
 		}
-		System.out.println(pattern);
 
 	}
 

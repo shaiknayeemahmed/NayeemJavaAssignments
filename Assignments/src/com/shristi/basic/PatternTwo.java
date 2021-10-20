@@ -7,15 +7,17 @@ public class PatternTwo {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int number = sc.nextInt();
-//		int temp = 1;
+		int temp = 1;
 		String pattern ="";
-		for(int i=1;i<=number;i++) {
-			pattern += " ";
-			for(int j=1; j<=number;j++) {
-				pattern += j;
+		for(int i=0;i<number;i++) {
+			for(int j=0;j<=i;j++) {
+				System.out.print(temp+" ");
+				temp++;
 			}
+
+			System.out.println();
 		}
-	System.out.println(pattern);	
+		
 	}
 
 }
