@@ -1,5 +1,6 @@
 package com.voting.main;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.voting.exceptions.LocalityNotFoundException;
@@ -15,7 +16,8 @@ public class Voter {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your age: ");
 		int age = sc.nextInt();
-
+booth.checkAge(age);
+		
 		try {
 			booth.checkAge(age);
 		} catch (UnderAgeException e) {
