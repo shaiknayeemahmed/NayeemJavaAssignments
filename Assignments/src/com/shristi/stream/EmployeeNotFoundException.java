@@ -1,3 +1,10 @@
+/*
+ * @author nayeem
+ * @version 1.0 
+ * @since 29-10-2021
+ *  */
+
+
 package com.shristi.stream;
 
 public class EmployeeNotFoundException extends Exception{
@@ -9,12 +16,12 @@ public class EmployeeNotFoundException extends Exception{
 
 	public EmployeeNotFoundException() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public EmployeeNotFoundException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

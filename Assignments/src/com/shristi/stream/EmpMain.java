@@ -1,3 +1,10 @@
+/*
+ * @author nayeem
+ * @version 1.0 
+ * @since 29-10-2021
+ *  */
+
+
 package com.shristi.stream;
 
 import java.util.*;
@@ -14,6 +21,8 @@ public class EmpMain {
 		empList.add(new Employee("shaik", "Chennai", "E170"));
 		empList.add(new Employee("nas", "Bangalore", "E171"));
 		empList.add(new Employee("John", "Mumbai", "E172"));
+		
+		//Printing employees list
 
 		System.out.println("List of Employees");
 		for(Employee emp: empList) {
@@ -28,8 +37,11 @@ public class EmpMain {
 		System.out.println("For sorting Employee List PRESS 3");
 		System.out.println("For search name start with the letter k PRESS 4");
 		int input = scanner .nextInt();
+		
+		//using switch case for performing different operations like sorting,filtering, searching
 		switch (input) {
 		case 1:
+			//search by city
 			System.out.println("Enter city to search");
 			String inputCity = scanner.next();
 			Stream<Employee> listStream = empList.stream();
@@ -64,12 +76,14 @@ public class EmpMain {
 			
 			break;
 		case 3:
+			//sorting employee list
 			Collections.sort(empList, (emp1, emp2) -> {
 				return emp1.name.compareTo(emp2.name);
 			});
 			System.out.println(empList);
 			break;
 		case 4:
+			//Search employee starts with letter "k"
 			Stream<Employee> filterByChar = empList.stream();
 			Stream<Employee> charStream = filterByChar.filter((x)->{
 				return x.name.startsWith("k");
