@@ -3,64 +3,64 @@ package com.voting.service;
 import com.voting.exceptions.*;
 
 public class ElectionBooth {
-	String localities[] = { "GandhiNagar", "RKPuram","Madhapur","Ameerpet" };
+	String localities[] = { "GandhiNagar", "RKPuram", "Madhapur", "Ameerpet", "HitechCity" };
 
-	// if age is less than 18 throw exception
+	// if the age is less than 18 throws exception
 	public boolean checkAge(int age) throws UnderAgeException {
+		boolean isPresent = false;
 		if (age >= 18) {
-			return true;
+			isPresent = true;
 		}
-		else {
-			throw new UnderAgeException("Under Age Exception: you are not eligible");
+		if (isPresent == false) {
+			throw new UnderAgeException("Under Age Exception: you are under age");
 		}
-		
+		return isPresent;
+
 	}
 
-	// check if the locality matches with the array
+	// check if the locality matches with the array elements
 	public boolean checkLocality(String locality) throws LocalityNotFoundException {
+		boolean isPresent = false;
 		for (String area : localities) {
 			if (locality.equalsIgnoreCase(area)) {
-				return true;
-			}
-			else {
-				throw new LocalityNotFoundException("Locality not Found Exception: your locality not found");
+				isPresent = true;
 			}
 		}
-		
-		
-		return false;
+		if (isPresent == false) {
+			throw new LocalityNotFoundException("Locality Not found Exception: locality not found");
+		}
+		return isPresent;
 	}
 
-	// check if id is within 1000 - 9000
+	// check if id is between 1000 to 9000
 	public boolean checkVoterId(int voterId) throws NoVoterIDException {
+		boolean isPresent = false;
 		if (voterId >= 1000 && voterId <= 9000) {
-			return true;
+			isPresent = true;
 		}
-		else {
+		if (isPresent == false) {
 			throw new NoVoterIDException("No Voter Id Exception: your voter Id is invalid");
 		}
-		
+		return isPresent;
 
 	}
 
 	public boolean checkEligibility(int age, String locality, int voterId) throws NotEligibleException {
+
 		// call all three methods
 		// handle the exception
-		// throw it to the voter
-		
-		
-		if(
-			checkAge(age)&&
-			checkLocality(locality)&&
-			checkVoterId(voterId)) {
-			
+		// show it to user
+		boolean isPresent = false;
+
+		if (checkAge(age) && checkLocality(locality) && checkVoterId(voterId)) {
+			isPresent = true;
 			System.out.println("You are eligible to cast vote");
 		}
-		else {
+
+		if (isPresent == false) {
 			throw new NotEligibleException("Not Eligible to vote");
 		}
-		
-		return true;
+		return isPresent;
 	}
 
 }
