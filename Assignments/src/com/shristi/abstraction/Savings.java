@@ -8,17 +8,14 @@ public class Savings extends Bank {
 
 	@Override
 	void withdraw(double amount) {
-		
-		balance -=amount * 1.01;
+
+		balance -= amount * 1.001;
 	}
 
 	@Override
 	void deposit(double amount) {
-		balance +=amount;
-		
+		balance += amount;
+
 	}
-	
-	
-	
 
 }
